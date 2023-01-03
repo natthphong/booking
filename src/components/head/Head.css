@@ -1,0 +1,80 @@
+
+.header{
+    position: relative;
+    background-color: rgb(89, 89, 236); 
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.header-main{
+    width: 100%;
+    max-width: 1024px;
+    margin: 20px 0px 100px 0px;
+}
+
+.header-list{
+    margin-bottom: 30px;
+    display: flex;
+    gap: 40px;
+}
+.header-list-item{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.header-list-item.active{
+        border: 1px solid white;
+        padding: 10px;
+        border-radius: 12px;
+}
+.desc{
+    margin: 20px 0px;
+}
+.header-btn
+{
+    background-color: rgb(164, 164, 250); 
+        color: white;
+        padding: 10px;
+        font-weight: 500;
+        border: none;
+        cursor: pointer;
+        margin: 0px;
+}
+
+.search{
+    max-height: 40px;
+    border: 3px solid rgb(243, 243, 39);
+    color: lightgrey;
+    bottom: -25px;
+    position: absolute;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1024px;
+    background-color: white;
+}
+.search-item{
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.search-item input{
+    padding: 10px 5px;
+    border: none;
+    overflow: auto;
+    outline: none;
+}
+
+.spText{
+    color: lightgrey;
+    cursor: pointer;
+}
+
+.Daterange{
+    position: absolute;
+    top: 56px;
+}

@@ -1,0 +1,27 @@
+h1,h2,h3,h4,p,body,html{
+    margin: 0px;
+}
+
+.nav{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 50px;
+    background-color: rgb(89, 89, 236); 
+}
+.nav-item{
+    width: 70%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn{
+    margin-left: auto;
+}
+button{
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 5px;
+}
