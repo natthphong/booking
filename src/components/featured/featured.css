@@ -1,0 +1,49 @@
+h1,h2,p,h3{
+    margin: 0px;
+    padding: 0px;
+}
+.featured{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1024px;
+    justify-content: space-between;
+}
+.featured-img{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+.featured-item{
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.featured-item:hover{
+    box-shadow: -9px 3px 29px -6px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -9px 3px 29px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: -9px 3px 29px -6px rgba(0,0,0,0.75);
+}
+
+.titleImg{  
+    font-weight: 400;
+    
+    color: white;
+    top: 25px;
+    left: 25px;
+    position: absolute;
+}
+.row{
+
+    align-items: center;
+    display: flex;
+    gap: 15px;
+}
+
+.logoNation{
+    width: 24px;
+    height: 24px;
+}

@@ -8,7 +8,7 @@ h1,h2,h3,h4,p,body,html{
     justify-content: center;
     align-content: center;
     height: 50px;
-    background-color: rgb(89, 89, 236); 
+    background-color: #003580; 
 }
 .nav-item{
     width: 70%;
