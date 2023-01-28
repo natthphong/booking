@@ -1,94 +1,83 @@
-label{
-    font-size: 12px;
-    font-weight: 500;
-}
-.list-container {
+.listContainer {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-
-.listWrapper{
+  }
+  
+  .listWrapper {
     width: 100%;
     max-width: 1024px;
     display: flex;
     gap: 20px;
-}
-
-.lsItem{
-    position: relative;
+  }
+  
+  .listSearch {
+    flex: 1;
+    background-color: #febb02;
+    padding: 10px;
+    border-radius: 10px;
+    position: sticky;
+    top: 10px;
+    height: max-content;
+  }
+  
+  .lsTitle{
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .lsItem{
     display: flex;
     flex-direction: column;
-    gap:5px;
+    gap: 5px;
     margin-bottom: 10px;
-}
-.lsItem label{
+  }
+  
+  .lsItem>label{
     font-size: 12px;
-}
-.lsItem input{
+  }
+  
+  .lsItem>input{
     height: 30px;
     border: none;
     padding: 5px;
-}
-.checkindate{
-    font-size: 13px;
-    font-weight: 500;
-    border: none;
+  }
+  .lsItem>span{
+    height: 30px;
     padding: 5px;
+    background-color: white;
     display: flex;
     align-items: center;
     cursor: pointer;
-    background-color: white;
-}
-
-.listSearch {
-    flex: 1;
-    background-color: yellow;
-    border-radius: 10px;
+  }
+  
+  .lsOptions{
     padding: 10px;
-    position: sticky;
-    top: 10px;
-}
-.lstitle{
-    color: #555;
-    margin-bottom: 10px;
-    font-size: 20px;
-}
-.listResult{
-    flex: 3;
-}
-
-.lDate{
-    font-size: 10px;
-    position:absolute;
-    top: 60px;
-    z-index: 10;
-}
-
-.lsOption{
+  }
+  
+  .lsOptionItem{
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-bottom: 10px;
     color: #555;
     font-size: 12px;
-}
-
-.lsOption-input{
+  }
+  
+  .lsOptionInput{
     width: 50px;
-}
-
-.lsOption-container{
-    padding: 10px;
-}
-
-.listSearch button{
-    margin: 0px;
+  }
+  
+  .listSearch>button{
     padding: 10px;
     background-color: #0071c2;
     color: white;
-    border:none;
+    border: none;
     width: 100%;
     font-weight: 500;
     cursor: pointer;
-    box-sizing: border-box;
-}
+  }
+  
+  .listResult {
+    flex: 3;
+  }

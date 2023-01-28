@@ -1,97 +1,109 @@
-import { format } from 'date-fns'
-import { React, useState } from 'react'
-import { DateRange } from 'react-date-range'
-import { useLocation } from 'react-router-dom'
-import Header from '../../components/head/Header'
-import Navbar from '../../components/Nav/Navbar'
-import SearchItem from '../../components/searchItem/SearchItem'
-import './list.css'
 
-export default function List() {
-  const location = useLocation()
-  console.log(location.state);
+import "./list.css";
+import Navbar from "../../components/Nav/Navbar";
+import Header from "../../components/head/Header";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { format } from "date-fns";
+import { DateRange } from "react-date-range";
+import SearchItem from "../../components/searchItem/SearchItem";
 
-  const [option, setoption] = useState(location.state.option);
-  const [changeDate, setchangeDate] = useState(false);
-  const [date, setDate] = useState(location.state.date);
+export default function List(){
+  const location = useLocation();
   const [destination, setDestination] = useState(location.state.destination);
+  const [date, setDate] = useState(location.state.date);
+  const [openDate, setOpenDate] = useState(false);
+  const [options, setOptions] = useState(location.state.option);
+
   return (
     <div>
       <Navbar />
       <Header type="list" />
-
-      <div className="list-container">
+      <div className="listContainer">
         <div className="listWrapper">
           <div className="listSearch">
-            <h1 className="lstitle">Search</h1>
+            <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
-              <label htmlFor="">Destination</label>
+              <label>Destination</label>
               <input placeholder={destination} type="text" />
             </div>
-
             <div className="lsItem">
-              <label htmlFor="">Check-in Date</label>
-              <span className='checkindate' onClick={e => setchangeDate(!changeDate)}>
-                {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}
-              </span>
-              {changeDate && <DateRange
-                onChange={item => setDate([item.selection])}
-                ranges={date}
-                minDate={new Date()}
-                className='lDate'
-              />}
-
+              <label>Check-in Date</label>
+              <span onClick={() => setOpenDate(!openDate)}>{`${format(
+                date[0].startDate,
+                "MM/dd/yyyy"
+              )} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+              {openDate && (
+                <DateRange
+                  onChange={(item) => setDate([item.selection])}
+                  minDate={new Date()}
+                  ranges={date}
+                />
+              )}
             </div>
-            <div className="lsoptioni">
-              <label htmlFor="">Options</label>
-              <div className="lsOption-container">
-                <div className="lsOption">
+            <div className="lsItem">
+              <label>Options</label>
+              <div className="lsOptions">
+                <div className="lsOptionItem">
                   <span className="lsOptionText">
                     Min price <small>per night</small>
                   </span>
-                  <input type="number" className="lsOption-input" />
+                  <input type="number" className="lsOptionInput" />
                 </div>
-
-
-                <div className="lsOption">
+                <div className="lsOptionItem">
                   <span className="lsOptionText">
                     Max price <small>per night</small>
                   </span>
-                  <input type="number" className="lsOption-input" />
+                  <input type="number" className="lsOptionInput" />
                 </div>
-                <div className="lsOption">
-                  <span className="lsOptionText">
-                    Adult
-                  </span>
-                  <input type="number" min={1} className="lsOption-input" placeholder={option.adult} />
+                <div className="lsOptionItem">
+                  <span className="lsOptionText">Adult</span>
+                  <input
+                    type="number"
+                    min={1}
+                    className="lsOptionInput"
+                    placeholder={options.adult}
+                  />
                 </div>
-                <div className="lsOption">
-                  <span className="lsOptionText">
-                    Children
-                  </span>
-                  <input type="number" min={0} className="lsOption-input" placeholder={option.children} />
+                <div className="lsOptionItem">
+                  <span className="lsOptionText">Children</span>
+                  <input
+                    type="number"
+                    min={0}
+                    className="lsOptionInput"
+                    placeholder={options.children}
+                  />
                 </div>
-                <div className="lsOption">
-                  <span className="lsOptionText">
-                    Room
-                  </span>
-                  <input type="number" min={1} className="lsOption-input" placeholder={option.room} />
+                <div className="lsOptionItem">
+                  <span className="lsOptionText">Room</span>
+                  <input
+                    type="number"
+                    min={1}
+                    className="lsOptionInput"
+                    placeholder={options.room}
+                  />
                 </div>
               </div>
             </div>
-                <button>Search</button>
-          </div>
-          <div className="listResult">
-                  <SearchItem />
-                  <SearchItem />
-                  <SearchItem />
-                  <SearchItem />
-                  <SearchItem />
-                  
+            <button>Search</button>
           </div>
 
+          <div className="listResult">
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+            <SearchItem />
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+    
+  );
+};
+
+
