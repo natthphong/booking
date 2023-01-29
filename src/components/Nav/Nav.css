@@ -1,4 +1,5 @@
 h1,h2,h3,h4,p,body,html{
+
     margin: 0px;
 }
 
@@ -6,12 +7,12 @@ h1,h2,h3,h4,p,body,html{
     color: white;
     display: flex;
     justify-content: center;
-    align-content: center;
     height: 50px;
     background-color: #003580; 
 }
 .nav-item{
-    width: 70%;
+    font-size: 1.125rem;
+    width: 80%;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -25,3 +26,4 @@ button{
     padding: 5px 10px;
     margin: 5px;
 }
+

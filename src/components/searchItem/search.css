@@ -3,13 +3,94 @@ body{
     font-size: 0.75rem;
 }
 .sImg{
-    width: 160px;
-    height: 160px;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
 }
 .seachitem{
+    min-width: 512px;
+    overflow: hidden;
     display: flex;
-    gap: 10px;
+    gap: 15px;
     margin: 10px;
     padding: 10px;
     border: 1px solid grey;
+}
+.taxi{
+    border-radius: 5px;
+    padding: 3px;
+    width: max-content;
+    color: white;
+    background-color: #008009;
+}
+.sTitle{
+    margin: 0px;
+   color:  #0071c2;
+   font-weight: 600;
+}
+.siDesc{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 2;
+}
+.siDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+.free{
+    font-size: 12px;
+    color: #008009;
+    font-weight: bold;
+}
+.sfree{
+    font-size: 12px;
+    color: #008009;
+}
+.stext{
+    font-weight: 900;
+}
+
+.review{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.review button{
+    color: white;
+    margin: 5px 5px 5px 0px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid white;
+    background-color: #003580;
+}
+.review h2{
+    margin: 0px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+.money{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 5px;
+}
+
+.money h1{
+    font-weight: 500;
+
+}
+
+.money button{
+    border-radius: 4px;
+    background-color:#0071c2; 
+    color: white;
+    padding: 10px 5px;
+    font-weight: 500;
+    border: none;
+
 }

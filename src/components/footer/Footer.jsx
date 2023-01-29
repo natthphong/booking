@@ -2,6 +2,7 @@ import React from 'react';
 import './footer.css';
 export default function Footer() {
     return (
+        <div className="footer-container">
         <div className="footer">
             <div className="fList">
                 <ul className="fList-ul">
@@ -108,6 +109,7 @@ export default function Footer() {
                 <div className="fText">Copyright © 1996–2023 Booking.com™. All rights reserved.
 </div>
 
+        </div>
         </div>
 
         

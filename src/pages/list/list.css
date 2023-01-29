@@ -18,7 +18,7 @@
     border-radius: 10px;
     position: sticky;
     top: 10px;
-    height: max-content;
+    height: max-content; /*max content*/
   }
   
   .lsTitle{
@@ -80,4 +80,9 @@
   
   .listResult {
     flex: 3;
+  }
+
+  .dateeiei{
+    top: 180px;
+    position: absolute;
   }
