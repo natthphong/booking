@@ -1,15 +1,16 @@
 const {createError}  = require ('../untils/error')
 const express = require('express');
 const {createHotel,updateHotel,deleteHotel,getHotel,getallHotel} = require('../controllers/Conhotel.js');
+const { verifyAdmin } = require('../untils/verifyuser');
 
 const router = express.Router();
 
 //create
-router.post('/' , createHotel)
+router.post('/' ,verifyAdmin, createHotel)
 //Update
-router.put('/:id' , updateHotel)
+router.put('/:id' , verifyAdmin,updateHotel)
 //Delete
-router.delete('/:id' , deleteHotel)
+router.delete('/:id' , verifyAdmin,deleteHotel)
 //Get
 router.get('/:id' , getHotel)
 //Get all

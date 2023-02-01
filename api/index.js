@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 dotenv.config();
 
 //router
@@ -14,6 +15,7 @@ const users = require('./routes/users.js');
 //config
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 ///connectMongodb
 const connect = async () => {
