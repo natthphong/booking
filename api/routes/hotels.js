@@ -1,13 +1,19 @@
+const {createError}  = require ('../untils/error')
 const express = require('express');
+const {createHotel,updateHotel,deleteHotel,getHotel,getallHotel} = require('../controllers/Conhotel.js');
 
 const router = express.Router();
 
-
-router.get('/' , (req,res)=>{
-
-    res.send('hello hotels');
-})
-
+//create
+router.post('/' , createHotel)
+//Update
+router.put('/:id' , updateHotel)
+//Delete
+router.delete('/:id' , deleteHotel)
+//Get
+router.get('/:id' , getHotel)
+//Get all
+router.get('/' , getallHotel)
 
 
 

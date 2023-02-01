@@ -13,6 +13,7 @@ const users = require('./routes/users.js');
 
 //config
 const app = express();
+app.use(express.urlencoded({ extended: true }));
 
 ///connectMongodb
 const connect = async () => {
@@ -33,6 +34,18 @@ app.use('/hotels',hotels);
 app.use('/rooms',rooms);
 app.use('/users',users);
 
+
+app.use((err,req,res,next)=>{
+    const errStatus = err.status||500;
+    const errMessage = err.message||"Something went wrong!";
+
+   return res.status(500).json({
+    sucess:false,
+    status:errStatus,
+    message:errMessage,
+    stack:err.stack
+   })
+});
 
 
 
