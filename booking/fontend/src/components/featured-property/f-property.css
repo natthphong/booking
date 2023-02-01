@@ -1,0 +1,35 @@
+.fp{
+    cursor: pointer;
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.fp img{
+    width: 100%;
+}
+
+.fp button{
+    color: white;
+    margin: 5px 5px 5px 0px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid white;
+    background-color: #003580;
+}
+
+.fpName{
+    font-weight: 700;
+    display: block;
+}
+
+.fpCity{
+    display: block;
+    font-size: 14px;
+    font-weight: 200;
+}
+.fpPrice{
+    font-weight: 700;
+}
