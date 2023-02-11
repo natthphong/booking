@@ -7,6 +7,7 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
 import SearchItem from "../../components/searchItem/SearchItem";
+import useFetch from "../hook/useFetch";
 
 export default function List(){
   const location = useLocation();
@@ -14,6 +15,14 @@ export default function List(){
   const [date, setDate] = useState(location.state.date);
   const [openDate, setOpenDate] = useState(false);
   const [options, setOptions] = useState(location.state.option);
+  const [max, setMax] = useState(location.state.option|9999);
+  const [min, setMin] = useState(location.state.option);
+  const { Data, loading, error  , reFetch} = useFetch(`/hotels?city=${destination}&min=${min | 0}&max=${max }`);
+    
+
+  const handleClick  = (e)=>{
+    reFetch();
+  }
 
   return (
     <div>
@@ -49,13 +58,13 @@ export default function List(){
                   <span className="lsOptionText">
                     Min price <small>per night</small>
                   </span>
-                  <input type="number" className="lsOptionInput" />
+                  <input min={0} onChange={e=>setMin(e.target.value)} type="number" className="lsOptionInput" />
                 </div>
                 <div className="lsOptionItem">
                   <span className="lsOptionText">
                     Max price <small>per night</small>
                   </span>
-                  <input type="number" className="lsOptionInput" />
+                  <input min={0}  onChange={e=>setMax(e.target.value)} type="number" className="lsOptionInput" />
                 </div>
                 <div className="lsOptionItem">
                   <span className="lsOptionText">Adult</span>
@@ -70,7 +79,7 @@ export default function List(){
                   <span className="lsOptionText">Children</span>
                   <input
                     type="number"
-                    min={0}
+                    min={1}
                     className="lsOptionInput"
                     placeholder={options.children}
                   />
@@ -86,19 +95,15 @@ export default function List(){
                 </div>
               </div>
             </div>
-            <button>Search</button>
+            <button onClick={handleClick}>Search</button>
           </div>
 
           <div className="listResult">
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
-            <SearchItem />
+           {loading?"loading": 
+              Data.map((item,i)=>(
+                  <SearchItem  item={item} key={item._id} />
+              ))
+           }
           </div>
         </div>
       </div>

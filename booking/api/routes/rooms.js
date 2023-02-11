@@ -1,17 +1,21 @@
+const {createError}  = require ('../untils/error')
 const express = require('express');
+
+const { verifyAdmin } = require('../untils/verifyuser');
+const { createRoom, updateRoom, deleteRoom, getRoom, getallRoom } = require('../controllers/Conroom');
 
 const router = express.Router();
 
-
-router.get('/' , (req,res)=>{
-
-    res.send('hello room');
-})
-
-router.get('/register' , (req,res)=>{
-
-    res.send('hello room register');
-})
+//create
+router.post('/:hotelid' ,verifyAdmin, createRoom)
+//Update
+router.put('/:id' , verifyAdmin,updateRoom)
+//Delete
+router.delete('/:id/:hotelid' , verifyAdmin,deleteRoom)
+//Get
+router.get('/:id' , getRoom)
+//Get all
+router.get('/' , getallRoom)
 
 
 

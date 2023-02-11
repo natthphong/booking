@@ -1,9 +1,13 @@
-const {createError}  = require ('../untils/error')
-const express = require('express');
-const {createHotel,updateHotel,deleteHotel,getHotel,getallHotel} = require('../controllers/Conhotel.js');
+
+const {createHotel,updateHotel,deleteHotel,getHotel,getallHotel, countByCity, countByType} = require('../controllers/Conhotel.js');
 const { verifyAdmin } = require('../untils/verifyuser');
 
-const router = express.Router();
+const router = require('express').Router();
+
+
+router.get('/countByCity' , countByCity);
+router.get("/countByType", countByType);
+
 
 //create
 router.post('/' ,verifyAdmin, createHotel)
@@ -15,6 +19,7 @@ router.delete('/:id' , verifyAdmin,deleteHotel)
 router.get('/:id' , getHotel)
 //Get all
 router.get('/' , getallHotel)
+
 
 
 
