@@ -3,20 +3,24 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css';
 
 
-import { React, useState } from 'react'
+import { React, useContext, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi } from '@fortawesome/free-solid-svg-icons'
 import { DateRange } from 'react-date-range';
 import { format } from 'date-fns';
 import { useNavigate } from 'react-router-dom';
+import { SearchContext } from '../../context/SearchContext';
+import { AuthContext } from '../../context/AuthContext';
 export default function Header({type}) {
+    const { user } = useContext(AuthContext);
     const [openDate, setopenDate] = useState(false);
     const [destination, setDestination] = useState("")
+    
     var toggleDate = (e) => {
         if (openOptions) setopenOptions(!openOptions);
         setopenDate(!openDate);
     }
-    const [date, setDate] = useState([
+    const [dates, setDates] = useState([
         {
             startDate: new Date(),
             endDate: new Date(),
@@ -39,8 +43,12 @@ export default function Header({type}) {
        );
     };
     const navigate = useNavigate()
+    const {dispatch} =useContext(SearchContext)
     const handlesearch = ()=>{
-        navigate("/hotels",{state:{destination,date,option}})
+        const options  = option;
+        
+        dispatch({type:"NEW_SEARCH" , payload:{destination,dates,options}})
+        navigate("/hotels",{state:{destination,dates,option}})
     }
 
     return (
@@ -73,9 +81,9 @@ export default function Header({type}) {
                 <p className='desc'>
                     If you have some free time, why not take a trip and experience the joys of vacationing?
                 </p>
-                <button className="header-btn">
+               {!user && <button className="header-btn">
                     Sign in / Register
-                </button>
+                </button>}
 
                 <div className="search">
                     <div className="search-item">
@@ -89,13 +97,13 @@ export default function Header({type}) {
                     <div className="search-item">
                         <FontAwesomeIcon icon={faCalendarDays} />
                         <span onClick={toggleDate}
-                            className='spText'>{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+                            className='spText'>{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(dates[0].endDate, "MM/dd/yyyy")}`}</span>
                         {openDate && <DateRange
 
                             editableDateInputs={true}
-                            onChange={item => setDate([item.selection])}
+                            onChange={item => setDates([item.selection])}
                             moveRangeOnFirstSelection={false}
-                            ranges={date}
+                            ranges={dates}
                             minDate={new Date()}
                             className="Daterange"
                         />}
@@ -151,7 +159,7 @@ export default function Header({type}) {
                         }
                     </div>
                     <span>
-                        <button className='header-btn'
+                        <button  className='header-btn'
                         onClick={handlesearch}
                         >Search</button>
                     </span>

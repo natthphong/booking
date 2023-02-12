@@ -2,9 +2,13 @@ const {createError}  = require ('../untils/error')
 const express = require('express');
 
 const { verifyAdmin } = require('../untils/verifyuser');
-const { createRoom, updateRoom, deleteRoom, getRoom, getallRoom } = require('../controllers/Conroom');
+const { createRoom, updateRoom, deleteRoom, getRoom, getallRoom, updateRoomAvailability } = require('../controllers/Conroom');
 
 const router = express.Router();
+
+//availability
+router.put("/availability/:id", updateRoomAvailability);
+
 
 //create
 router.post('/:hotelid' ,verifyAdmin, createRoom)

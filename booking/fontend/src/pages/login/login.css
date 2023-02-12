@@ -1,0 +1,46 @@
+* {
+    font-family: "Poppins";
+  }
+  
+  .body {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #dde5f4;
+    height: 100vh;
+  }
+  
+  .screen-1 {
+    background: #f1f7fe;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    box-shadow: 0 0 2em #e6e9f9;
+    gap: 2em;
+  }
+  .lcontainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .lcontainer input{
+    font-size: 16px;
+    padding: 15px;
+  }
+  
+  
+  .Lbtn {
+    font-size: 16px;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: blue;
+    cursor: pointer;
+  }
